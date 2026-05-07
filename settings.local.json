@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(Get-Item \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\design_raw.html\")",
+      "Bash(Select-Object Length, LastWriteTime)",
+      "Bash(curl -sI \"https://api.anthropic.com/v1/design/h/7pe2Uy4nFgZI5_QyG_nWaA?open_file=AURA+Landing+Page.html\")",
+      "Bash(curl -sv \"https://api.anthropic.com/v1/design/h/7pe2Uy4nFgZI5_QyG_nWaA?open_file=AURA+Landing+Page.html\" -o /dev/null)",
+      "Bash(curl -s \"https://api.anthropic.com/v1/design/h/7pe2Uy4nFgZI5_QyG_nWaA?open_file=AURA+Landing+Page.html\" -o \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\design.gz\")",
+      "Bash(gunzip -c \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\design.gz\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\design_extracted\")",
+      "Bash(tar -xzf \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\design.gz\" -C \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\design_extracted\")",
+      "Bash(mkdir -p design_extracted)",
+      "Bash(tar -xzf design.gz -C design_extracted)",
+      "Bash(cp *)"
+    ]
+  }
+}
