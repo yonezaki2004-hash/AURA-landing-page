@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA - モテる人の真似ではなく、あなたに合う勝ち方を設計する。</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0D0D0D;
+    --dark: #1A1A1A;
+    --mid: #4D4D4D;
+    --gray: #A3A3A3;
+    --light: #EDEDED;
+    --white: #FFFFFF;
+    --font-serif: 'Noto Serif JP', serif;
+    --font-sans: 'Noto Sans JP', sans-serif;
+    --font-display: 'Cormorant Garamond', serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--white);
+    color: var(--black);
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.96);
+    border-bottom: 1px solid #1f1f1f;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+  }
+
+  .header-inner {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+  }
+
+  nav a {
+    font-size: 13px;
+    font-weight: 400;
+    color: #ccc;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--white); }
+
+  .header-cta {
+    margin-left: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 9px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover { background: var(--light); }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 9px 20px;
+    border-radius: 4px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-outline:hover { border-color: var(--white); }
+
+  .line-icon {
+    width: 18px;
+    height: 18px;
+    background: #06C755;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .line-icon svg { width: 12px; height: 12px; fill: white; }
+
+  /* ── HERO ── */
+  .hero {
+    padding-top: 60px;
+    min-height: 100vh;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+  }
+
+  /* Full-bleed photo behind everything */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 65% top;
+    display: block;
+  }
+
+  /* Dark gradient overlay: heavy on left, fades to transparent on right */
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      rgba(0,0,0,0.92) 0%,
+      rgba(0,0,0,0.75) 38%,
+      rgba(0,0,0,0.2) 65%,
+      rgba(0,0,0,0.0) 100%
+    );
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 2;
+    padding: 100px 0 80px 80px;
+    width: 55%;
+    max-width: 680px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .hero-eyebrow {
+    display: none;
+  }
+
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 28px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 2;
+    margin-bottom: 8px;
+  }
+
+  .hero-note {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 0;
+    letter-spacing: 0.05em;
+    order: 10;
+    margin-top: 20px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    margin-top: 32px;
+  }
+
+  .btn-primary-lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 14px 32px;
+    border-radius: 3px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-primary-lg:hover { background: var(--light); }
+
+  .btn-outline-lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 13px 28px;
+    border-radius: 3px;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-outline-lg:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+
+  .hero-right { display: none; }
+
+  /* Large "A" watermark */
+  .hero-watermark {
+    position: absolute;
+    bottom: -40px;
+    right: -20px;
+    font-family: var(--font-display);
+    font-size: 320px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 1;
+    user-select: none;
+  }
+
+  /* ── METRICS STRIP ── */
+  .metrics-strip {
+    background: #111111;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 36px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .metrics-strip::before {
+    content: '';
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1px;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .metrics-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+  }
+
+  .metric-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .metric-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    filter: invert(1);
+  }
+
+  .metric-text { display: flex; flex-direction: column; }
+
+  .metric-label {
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 0.08em;
+  }
+
+  .metric-value {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--white);
+  }
+
+  .metric-unit {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .metric-sub {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  .metric-divider {
+    width: 1px;
+    height: 52px;
+    background: #2a2a2a;
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: 88px 80px; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .section-subtitle {
+    font-size: 12px;
+    color: var(--gray);
+    text-align: center;
+    letter-spacing: 0.12em;
+    margin-bottom: 52px;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--black);
+    margin: 16px auto 48px;
+  }
+
+  /* ── AURA ABOUT ── */
+  .about-section {
+    background: var(--white);
+    padding: 80px;
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-photo {
+    position: relative;
+    background: var(--black);
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+  .about-photo-overlay {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    font-family: var(--font-display);
+    font-size: 80px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.15);
+    line-height: 1;
+  }
+
+  .about-content {}
+
+  .about-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    border: 1px solid var(--light);
+    padding: 4px 12px;
+    margin-bottom: 20px;
+  }
+
+  .about-title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .about-divider {
+    width: 32px;
+    height: 1px;
+    background: var(--black);
+    margin-bottom: 20px;
+  }
+
+  .about-text {
+    font-size: 13px;
+    line-height: 2;
+    color: var(--mid);
+    margin-bottom: 24px;
+  }
+
+  .about-flow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .about-flow-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .about-flow-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+  }
+
+  .about-flow-label {
+    font-size: 10px;
+    color: var(--mid);
+    text-align: center;
+  }
+
+  .about-flow-arrow {
+    width: 20px;
+    height: 1px;
+    background: var(--gray);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .about-flow-arrow::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: -3px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid var(--gray);
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+  }
+
+  /* ── PROBLEMS ── */
+  .problems-section {
+    background: var(--white);
+    padding: 80px;
+  }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .problem-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .problem-icon {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+  }
+
+  .problem-label {
+    font-size: 11px;
+    color: var(--mid);
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── REASONS (DARK) ── */
+  .reasons-section {
+    background: var(--black);
+    padding: 80px;
+    color: var(--white);
+  }
+
+  .reasons-section .section-title { color: var(--white); }
+  .reasons-section .section-subtitle { color: var(--gray); }
+  .reasons-section .divider { background: var(--white); }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+
+  .reason-card {
+    background: var(--dark);
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .reason-number {
+    font-size: 10px;
+    color: var(--gray);
+    letter-spacing: 0.15em;
+  }
+
+  .reason-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: invert(1);
+  }
+
+  .reason-title {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+  }
+
+  .reason-text {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.8;
+  }
+
+  .reasons-tagline {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+    padding-top: 32px;
+    border-top: 1px solid #222;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .reasons-tagline em {
+    font-style: normal;
+    color: var(--white);
+    font-size: 18px;
+  }
+
+  /* ── SERVICES ── */
+  .services-section {
+    background: var(--white);
+    padding: 80px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+  }
+
+  .service-label {
+    font-size: 11px;
+    color: var(--mid);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    background: var(--light);
+    padding: 80px;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--white);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 32px 28px;
+    position: relative;
+  }
+
+  .pricing-card.featured {
+    background: var(--black);
+    border-color: var(--black);
+    color: var(--white);
+    transform: scale(1.04);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: var(--white);
+    color: var(--black);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--light);
+  }
+
+  .pricing-plan-name {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    margin-bottom: 8px;
+  }
+
+  .pricing-card.featured .pricing-plan-name { color: #888; }
+
+  .pricing-price {
+    font-family: var(--font-serif);
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+
+  .pricing-price span {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .pricing-period {
+    font-size: 12px;
+    color: var(--gray);
+    margin-bottom: 4px;
+  }
+
+  .pricing-card.featured .pricing-period { color: #888; }
+
+  .pricing-type {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .pricing-divider {
+    height: 1px;
+    background: var(--light);
+    margin-bottom: 20px;
+  }
+
+  .pricing-card.featured .pricing-divider { background: #333; }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pricing-features li {
+    font-size: 12px;
+    color: var(--mid);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .pricing-card.featured .pricing-features li { color: #aaa; }
+
+  .pricing-features li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--gray);
+  }
+
+  /* ── FLOW ── */
+  .flow-section {
+    background: var(--white);
+    padding: 80px;
+  }
+
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    position: relative;
+    padding: 0 8px;
+  }
+
+  .flow-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 56px;
+    right: -12px;
+    width: 24px;
+    height: 1px;
+    background: var(--light);
+  }
+
+  .flow-number {
+    font-size: 12px;
+    color: var(--gray);
+    letter-spacing: 0.15em;
+  }
+
+  .flow-icon-wrap {
+    width: 88px;
+    height: 88px;
+    border: 2px solid var(--black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .flow-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+  }
+
+  .flow-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  .flow-desc {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ── COMPARISON ── */
+  .comparison-section {
+    background: #0a0a0a;
+    padding: 100px 80px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comparison-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 80% 0%, rgba(255,255,255,0.04), transparent 50%),
+                      radial-gradient(circle at 0% 100%, rgba(255,255,255,0.03), transparent 50%);
+    pointer-events: none;
+  }
+
+  .comparison-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .comparison-eyebrow {
+    font-size: 14px;
+    color: #ccc;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .comparison-headline {
+    font-family: var(--font-serif);
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin-bottom: 14px;
+    line-height: 1.4;
+  }
+
+  .comparison-sub {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 48px;
+    letter-spacing: 0.04em;
+  }
+
+  .comparison-table-wrap {
+    position: relative;
+    margin-bottom: 36px;
+  }
+
+  .ct {
+    width: 100%;
+    border-collapse: collapse;
+    color: #ddd;
+    font-size: 14px;
+  }
+
+  .ct th, .ct td {
+    padding: 16px 12px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+    vertical-align: middle;
+  }
+
+  .ct td:first-child, .ct th:first-child {
+    text-align: left;
+    color: #bbb;
+    font-weight: 400;
+    padding-left: 8px;
+    width: 200px;
+  }
+
+  .ct thead th {
+    color: #ccc;
+    font-weight: 400;
+    font-size: 13px;
+    padding: 14px 12px;
+    border-bottom: 1px solid #333;
+  }
+
+  .ct .ct-head-1 th { padding-bottom: 8px; border-bottom: none; }
+  .ct .ct-comp-group { font-size: 16px; color: #fff; letter-spacing: 0.05em; padding-bottom: 4px; }
+  .ct .ct-head-2 th { padding-top: 4px; font-size: 14px; color: #aaa; }
+
+  .ct .ct-aura-head {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    color: #fff;
+    letter-spacing: 0.05em;
+    padding: 18px 12px 14px;
+    border-bottom: 1px solid #333;
+    vertical-align: bottom;
+    position: relative;
+    z-index: 2;
+  }
+
+  .ct .ct-aura-name { font-weight: 600; }
+  .ct .ct-aura-tag { font-size: 13px; color: #999; font-family: var(--font-sans); margin-left: 4px; vertical-align: middle; }
+  .ct .ct-aura { color: #fff; font-weight: 500; position: relative; z-index: 2; }
+  .ct .ct-emph { font-size: 15px; }
+  .ct .ct-aura small { display: block; font-size: 11px; color: #999; margin-top: 4px; font-weight: 400; }
+  .ct tbody tr:last-child td { border-bottom: none; }
+
+  .ct th:nth-child(2), .ct td:nth-child(2) {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18), 0 0 24px rgba(255,255,255,0.05);
+  }
+
+  .comparison-note {
+    background: #050505;
+    border: 1px solid #1a1a1a;
+    border-radius: 4px;
+    padding: 24px 32px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 2;
+    color: #aaa;
+    margin-bottom: 36px;
+  }
+
+  .comparison-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .cf-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #050505;
+    border: 1px solid #1a1a1a;
+    border-radius: 4px;
+    padding: 20px 18px;
+  }
+
+  .cf-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cf-icon svg { width: 100%; height: 100%; }
+  .cf-title { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; letter-spacing: 0.02em; }
+  .cf-desc { font-size: 11px; color: #888; line-height: 1.5; }
+
+  /* ── FAQ ── */
+  .faq-section {
+    background: var(--white);
+    padding: 80px;
+  }
+
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--light);
+  }
+
+  .faq-item:first-child { border-top: 1px solid var(--light); }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .faq-q-badge {
+    width: 28px;
+    height: 28px;
+    background: var(--black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+    font-family: var(--font-display);
+  }
+
+  .faq-q-text {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    letter-spacing: 0.02em;
+  }
+
+  .faq-toggle {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+
+  .faq-toggle.open { transform: rotate(45deg); }
+
+  .faq-answer {
+    display: none;
+    padding: 0 0 20px 44px;
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.9;
+  }
+
+  .faq-answer.open { display: block; }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: var(--black);
+    padding: 100px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer-cta-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-cta-tag {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gray);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .footer-cta-headline {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    letter-spacing: 0.03em;
+  }
+
+  .footer-cta-sub {
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+
+  .footer-cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--black);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 16px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary-white:hover { background: var(--light); }
+
+  .btn-line-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 15px 28px;
+    border-radius: 4px;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-line-white:hover { border-color: var(--white); }
+
+  .footer-cta-watermark {
+    position: absolute;
+    bottom: -60px;
+    right: -40px;
+    font-family: var(--font-display);
+    font-size: 400px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.025);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 1px solid #222;
+    padding: 32px 80px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--white);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    color: var(--gray);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--white); }
+
+  .footer-copy {
+    font-size: 10px;
+    color: #444;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── DECORATIVE ── */
+  .deco-sparkle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    vertical-align: middle;
+    opacity: 0.6;
+  }
+
+  .section-deco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .section-deco img {
+    height: 16px;
+    object-fit: contain;
+    opacity: 0.5;
+  }
+
+  .section-deco-line {
+    width: 60px;
+    height: 1px;
+    background: var(--light);
+  }
+
+  /* Glow line divider */
+  .glow-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #888, transparent);
+    margin: 0;
+  }
+
+  /* Dark section sparkle accent */
+  .dark-sparkle {
+    filter: invert(1);
+    opacity: 0.4;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-left { padding: 80px 24px 60px; width: 100%; max-width: 100%; }
+    .hero-headline { font-size: 36px; }
+    .hero-bg::after { background: linear-gradient(105deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.5) 100%); }
+    .about-inner { grid-template-columns: 1fr; }
+    .problems-grid { grid-template-columns: repeat(3, 1fr); }
+    .reasons-grid { grid-template-columns: repeat(3, 1fr); }
+    .services-grid { grid-template-columns: repeat(4, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card.featured { transform: none; }
+    .flow-steps { grid-template-columns: repeat(3, 1fr); }
+    section { padding: 60px 24px; }
+    .about-section, .problems-section, .reasons-section, .services-section,
+    .pricing-section, .flow-section, .faq-section, .footer-cta { padding: 60px 24px; }
+    .comparison-section { padding: 60px 16px; }
+    .comparison-headline { font-size: 26px; }
+    .ct { font-size: 11px; }
+    .ct th, .ct td { padding: 10px 4px; }
+    .ct td:first-child, .ct th:first-child { width: auto; font-size: 11px; }
+    .comparison-features { grid-template-columns: 1fr 1fr; }
+    .metrics-strip { padding: 28px 24px; }
+    .metrics-inner { gap: 32px; flex-wrap: wrap; justify-content: flex-start; }
+    header { padding: 0 16px; }
+    nav { display: none; }
+    footer { padding: 24px; }
+    .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">AURA</a>
+    <nav>
+      <a href="#about">AURAとは</a>
+      <a href="#reasons">特徴</a>
+      <a href="#services">サービス</a>
+      <a href="#pricing">料金</a>
+      <a href="#flow">流れ</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a href="https://lin.ee/vVtBdaE" target="_blank" rel="noopener" class="btn-primary" style="font-size:12px;padding:8px 18px;">無料相談を予約</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <!-- Full-bleed background photo -->
+  <div class="hero-bg">
+    <img src="assets/hero_person_clean.png" alt="AURA main visual">
+  </div>
+  <div class="hero-watermark">A</div>
+  <div class="hero-left">
+    <h1 class="hero-headline">モテる人の真似ではなく、<br>あなたに合う<br>勝ち方を設計する。</h1>
+    <p class="hero-sub">服・髪・肌・写真・アプリ・会話・デートまで。<br>外見改善だけで終わらない、<br>あなた専用の恋愛改善ロードマップ。</p>
+    <div class="hero-buttons">
+      <a href="https://lin.ee/vVtBdaE" target="_blank" rel="noopener" class="btn-primary-lg">無料診断を受ける &nbsp;→</a>
+      <a href="https://lin.ee/vVtBdaE" target="_blank" rel="noopener" class="btn-outline-lg">
+        <span class="line-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.627.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></span>
+        LINEで相談する
+      </a>
+    </div>
+    <p class="hero-note">20〜40代男性向け ／ オンライン・対面対応</p>
+  </div>
+</section>
+
+<!-- METRICS STRIP -->
+<div class="metrics-strip">
+  <div class="metrics-inner">
+    <div class="metric-item">
+      <img class="metric-icon" src="assets/lp/element_047.png" alt="crown">
+      <div class="metric-text">
+        <span class="metric-label">年間約</span>
+        <span class="metric-value">1<span class="metric-unit">億</span></span>
+        <span class="metric-sub">規模の現場経験</span>
+      </div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric-item">
+      <img class="metric-icon" src="assets/lp/element_049.png" alt="chart">
+      <div class="metric-text">
+        <span class="metric-label">アパレル事業で売上</span>
+        <span class="metric-value">320<span class="metric-unit">万円</span></span>
+        <span class="metric-sub">達成</span>
+      </div>
+    </div>
+    <div class="metric-divider"></div>
+    <div class="metric-item">
+      <img class="metric-icon" src="assets/lp/element_048.png" alt="diamond">
+      <div class="metric-text">
+        <span class="metric-label">年間自己投資</span>
+        <span class="metric-value">300<span class="metric-unit">万円</span></span>
+        <span class="metric-sub">以上</span>
+      </div>
+    </div>
+  </div>
+  <!-- glow streak decorations -->
+  <img src="assets/lp/element_003.png" alt="" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:200px;opacity:0.4;pointer-events:none;">
+  <img src="assets/lp/element_003.png" alt="" style="position:absolute;right:0;top:50%;transform:translateY(-50%) scaleX(-1);width:200px;opacity:0.4;pointer-events:none;">
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <img src="assets/about_photo.png" alt="AURA" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;">
+      <div class="about-photo-overlay">A</div>
+    </div>
+    <div class="about-content">
+      <span class="about-tag">ABOUT AURA</span>
+      <h2 class="about-title">AURAとは</h2>
+      <div class="about-divider"></div>
+      <p class="about-text">AURAは、専門的な外見改善・恋愛戦略・環境整備コンサルティングサービスです。服装・髪型・肌ケア・写真・マッチングアプリ、メッセージ、デート、関係構築などを一貫してサポートし、人生で大きな結果を得られるよう専用のロードマップを設計します。</p>
+      <p class="about-text">外見・思考・環境を整え、理想の未来へ導く実践型コンサルティングサービスです。</p>
+      <div class="about-flow">
+        <div class="about-flow-item">
+          <img class="about-flow-icon" src="assets/lp/element_036.png" alt="ファッション">
+          <span class="about-flow-label">外見改善</span>
+        </div>
+        <div class="about-flow-arrow"></div>
+        <div class="about-flow-item">
+          <img class="about-flow-icon" src="assets/lp/element_041.png" alt="マッチング">
+          <span class="about-flow-label">出会い</span>
+        </div>
+        <div class="about-flow-arrow"></div>
+        <div class="about-flow-item">
+          <img class="about-flow-icon" src="assets/lp/element_042.png" alt="インスタ">
+          <span class="about-flow-label">会話</span>
+        </div>
+        <div class="about-flow-arrow"></div>
+        <div class="about-flow-item">
+          <img class="about-flow-icon" src="assets/lp/element_043.png" alt="関係構築">
+          <span class="about-flow-label">関係構築</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- PROBLEMS -->
+<section class="problems-section" id="problems">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="">
+      <h2 class="section-title" style="margin-bottom:0;">こんな悩みはありませんか？</h2>
+      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="problems-grid">
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_036.png" alt="ファッション">
+        <span class="problem-label">服装に<br>自信がない</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_037.png" alt="筋トレ">
+        <span class="problem-label">髪型・眉毛・肌が<br>整わない</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_041.png" alt="マッチング">
+        <span class="problem-label">写真が映えず<br>アプリで埋もれている</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_046.png" alt="悩み">
+        <span class="problem-label">何を変えるべきか<br>わからない</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_045.png" alt="メッセージ">
+        <span class="problem-label">メッセージや<br>デートが続かない</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_050.png" alt="成長">
+        <span class="problem-label">経験はあるのに<br>成果につながらない</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REASONS (DARK) -->
+<section class="reasons-section" id="reasons">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="" class="dark-sparkle">
+      <h2 class="section-title" style="margin-bottom:0;">AURAが選ばれる理由</h2>
+      <img src="assets/lp/element_002.png" alt="" class="dark-sparkle" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <span class="reason-number">01</span>
+        <img class="reason-icon" src="assets/lp/element_036.png" alt="">
+        <div class="reason-title">一気通貫で整える外見からアプリまで隙のない戦略設計</div>
+        <div class="reason-text">外見から分析から最短レートを設計し、確実に進める。</div>
+      </div>
+      <div class="reason-card">
+        <span class="reason-number">02</span>
+        <img class="reason-icon" src="assets/lp/element_050.png" alt="">
+        <div class="reason-title">あなただけのロードマップ</div>
+        <div class="reason-text">確認分析から最短レートを設計し、確実に進める。</div>
+      </div>
+      <div class="reason-card">
+        <span class="reason-number">03</span>
+        <img class="reason-icon" src="assets/lp/element_052.png" alt="">
+        <div class="reason-title">24時間365日相談受付</div>
+        <div class="reason-text">思い立った時にいつでも相談可能。スピード感のある対応で成果の鍵を握る。</div>
+      </div>
+      <div class="reason-card">
+        <span class="reason-number">04</span>
+        <img class="reason-icon" src="assets/lp/element_053.png" alt="">
+        <div class="reason-title">Zoom面談回数無制限</div>
+        <div class="reason-text">何度でも面談OK。自動配布で相談から成果の相談をサポート。</div>
+      </div>
+      <div class="reason-card">
+        <span class="reason-number">05</span>
+        <img class="reason-icon" src="assets/lp/element_047.png" alt="">
+        <div class="reason-title">実体験に基づく作成</div>
+        <div class="reason-text">成功・失敗体験をもとに、実践的で再現性の高いアドバイスを提供。</div>
+      </div>
+      <div class="reason-card">
+        <span class="reason-number">06</span>
+        <img class="reason-icon" src="assets/lp/element_048.png" alt="">
+        <div class="reason-title">手に取りやすい価格設計</div>
+        <div class="reason-text">高品質なサポートを他社の半額に近い適正価格で提供、投資対効果を最大化。</div>
+      </div>
+    </div>
+    <div class="reasons-tagline">
+      一般論ではなく、<em>「あなたに合う基盤」</em>から変える。
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="">
+      <h2 class="section-title" style="margin-bottom:0;">サービス内容</h2>
+      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="services-grid">
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_036.png" alt="">
+        <span class="service-label">ファッション</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_037.png" alt="">
+        <span class="service-label">メンズメイク</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_038.png" alt="">
+        <span class="service-label">スキンケア</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_039.png" alt="">
+        <span class="service-label">香水・匂い</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_040.png" alt="">
+        <span class="service-label">写真撮影</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_041.png" alt="">
+        <span class="service-label">マッチングアプリ</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_042.png" alt="">
+        <span class="service-label">インスタ・出会い</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_043.png" alt="">
+        <span class="service-label">恋愛・関係構築</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_044.png" alt="">
+        <span class="service-label">部屋づくり</span>
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/lp/element_044.png" alt="">
+        <span class="service-label">思考・人生設計</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-divider"></div>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="">
+      <h2 class="section-title" style="margin-bottom:0;">料金プラン</h2>
+      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="pricing-grid">
+      <!-- Plan A -->
+      <div class="pricing-card">
+        <div class="pricing-plan-name">プランA</div>
+        <div class="pricing-price">90,000<span>円</span></div>
+        <div class="pricing-period">40日間</div>
+        <div class="pricing-type">自走型プラン</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>動画解説・ドキュメント解説</li>
+          <li>ロードマップ相談</li>
+        </ul>
+      </div>
+
+      <!-- Plan B (featured) -->
+      <div class="pricing-card featured">
+        <div class="pricing-badge">
+          <img src="assets/lp/element_047.png" style="width:12px;height:12px;object-fit:contain;" alt="">
+          人気No.1
+        </div>
+        <div class="pricing-plan-name">プランB</div>
+        <div class="pricing-price" style="font-size:52px;">150,000<span>円</span></div>
+        <div class="pricing-period">40日間</div>
+        <div class="pricing-type">伴走型プラン</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>動画解説・ドキュメント解説</li>
+          <li>24時間365日FB</li>
+          <li>Zoom面談無制限</li>
+          <li>ロードマップ徹底解説</li>
+        </ul>
+      </div>
+
+      <!-- Plan C -->
+      <div class="pricing-card">
+        <div class="pricing-plan-name">プランC</div>
+        <div class="pricing-price">400,000<span>円</span></div>
+        <div class="pricing-period">100日間</div>
+        <div class="pricing-type">完全仕上・実践型プラン</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>動画解説・ドキュメント解説</li>
+          <li>24時間365日対応</li>
+          <li>Zoom面談無制限</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:11px;color:var(--gray);margin-top:32px;letter-spacing:0.05em;">※ 金額はすべて税込表示です。お支払いは一括・分割どちらも対応可能です。</p>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow-section" id="flow">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="">
+      <h2 class="section-title" style="margin-bottom:0;">ご利用の流れ</h2>
+      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <span class="flow-number">01</span>
+        <div class="flow-icon-wrap">
+          <img class="flow-icon" src="assets/lp/element_049.png" alt="LINE">
+        </div>
+        <div class="flow-label">LINE追加</div>
+        <div class="flow-desc">友達追加して簡単スタート</div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-number">02</span>
+        <div class="flow-icon-wrap">
+          <img class="flow-icon" src="assets/lp/element_046.png" alt="ヒアリング">
+        </div>
+        <div class="flow-label">事前相談</div>
+        <div class="flow-desc">現状をアンケートで確認</div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-number">03</span>
+        <div class="flow-icon-wrap">
+          <img class="flow-icon" src="assets/lp/element_053.png" alt="無料体験">
+        </div>
+        <div class="flow-label">無料体験</div>
+        <div class="flow-desc">課題を整理・方向性を確認</div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-number">04</span>
+        <div class="flow-icon-wrap">
+          <img class="flow-icon" src="assets/lp/element_051.png" alt="お申込み">
+        </div>
+        <div class="flow-label">無料体験</div>
+        <div class="flow-desc">一部サービスを無料お申込み</div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-number">05</span>
+        <div class="flow-icon-wrap">
+          <img class="flow-icon" src="assets/lp/element_050.png" alt="ご契約">
+        </div>
+        <div class="flow-label">ご契約</div>
+        <div class="flow-desc">プランを選択してご契約</div>
+      </div>
+      <div class="flow-step">
+        <span class="flow-number">06</span>
+        <div class="flow-icon-wrap">
+          <img class="flow-icon" src="assets/lp/element_054.png" alt="サポート開始">
+        </div>
+        <div class="flow-label">サポート開始</div>
+        <div class="flow-desc">ロードマップに沿ってサポート開始</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison-section" id="comparison">
+  <div class="comparison-inner">
+    <div class="comparison-eyebrow">すべてが、競合の半額以下。</div>
+    <h2 class="comparison-headline">AURAは、最短で人生を変える。</h2>
+    <p class="comparison-sub">料金・期間・サポート、すべてにおいて圧倒的な差をつける。</p>
+
+    <div class="comparison-table-wrap">
+      <table class="ct">
+        <thead>
+          <tr class="ct-head-1">
+            <th></th>
+            <th class="ct-aura-head" rowspan="2"><span class="ct-aura-name">AURA</span><span class="ct-aura-tag">（自社）</span></th>
+            <th colspan="2" class="ct-comp-group">競合</th>
+          </tr>
+          <tr class="ct-head-2">
+            <th></th>
+            <th>A社</th>
+            <th>B社</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Zoom面談</td><td class="ct-aura ct-emph">無制限</td><td>14〜21回</td><td>2回</td></tr>
+          <tr><td>対面指導</td><td class="ct-aura ct-emph">無制限</td><td>×</td><td>△</td></tr>
+          <tr><td>24時間365日FB対応</td><td class="ct-aura ct-emph">無制限</td><td>項目ごとに15回程度</td><td>無制限</td></tr>
+          <tr><td>ロードマップ作成</td><td class="ct-aura">○</td><td>○</td><td>△</td></tr>
+          <tr><td>フォローアップ期間</td><td class="ct-aura ct-emph">20日</td><td>0〜180日</td><td>500日</td></tr>
+          <tr><td>座学講義回数</td><td class="ct-aura ct-emph">オンライン動画視聴 or Zoom講義で無制限</td><td>10〜30回</td><td>（記載なし）</td></tr>
+          <tr><td>日数</td><td class="ct-aura ct-emph">40〜100日</td><td>100〜180日</td><td>180日</td></tr>
+          <tr><td>値段</td><td class="ct-aura ct-emph">90,000〜400,000円<small>（競合の約50％以下）</small></td><td>500,000〜1,000,000円</td><td>450,000〜1,700,000円</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comparison-note">
+      現在この業界はアングラなのを良いことに、内容と釣り合っていない値段が横行しています。<br>
+      AURAは適正な価格で、圧倒的なサポートと結果を提供します。
+    </div>
+
+    <div class="comparison-features">
+      <div class="cf-item">
+        <div class="cf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M9 8h6m-6 5h6m-3-7v12" stroke-linecap="round"/><path d="M9 8h5a2.5 2.5 0 010 5H9" stroke-linecap="round"/></svg></div>
+        <div class="cf-text"><div class="cf-title">料金は競合の半額以下</div><div class="cf-desc">圧倒的なコストパフォーマンス</div></div>
+      </div>
+      <div class="cf-item">
+        <div class="cf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke-linecap="round"/></svg></div>
+        <div class="cf-text"><div class="cf-title">最短40日で変化を実感</div><div class="cf-desc">短期間で結果にコミット</div></div>
+      </div>
+      <div class="cf-item">
+        <div class="cf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.5-9-9.5C1.5 7.5 4 4 7.5 4c2 0 3.5 1 4.5 2.5C13 5 14.5 4 16.5 4 20 4 22.5 7.5 21 11.5 19 16.5 12 21 12 21z" stroke-linejoin="round"/></svg></div>
+        <div class="cf-text"><div class="cf-title">外見・恋愛から人生設計まで</div><div class="cf-desc">すべてを網羅したサポート</div></div>
+      </div>
+      <div class="cf-item">
+        <div class="cf-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 13a8 8 0 0116 0v4a2 2 0 01-2 2h-2v-7h4M4 13v4a2 2 0 002 2h2v-7H4z" stroke-linejoin="round"/></svg></div>
+        <div class="cf-text"><div class="cf-title">24時間365日フルサポート</div><div class="cf-desc">3人体制で徹底伴走</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="">
+      <h2 class="section-title" style="margin-bottom:0;">FAQ</h2>
+      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <div class="faq-q-badge">Q</div>
+          <div class="faq-q-text">本当に変われますか？</div>
+          <div class="faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">はい。AURAは一般論ではなく、あなたの現状に合わせたオーダーメイドの戦略を設計します。外見・思考・環境の3軸で同時にアプローチするため、確実な変化を実感できます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <div class="faq-q-badge">Q</div>
+          <div class="faq-q-text">LINE追加は必要ですか？</div>
+          <div class="faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">はい。LINE登録後にアンケートへのご回答と初回の無料診断をご案内しています。登録後すぐにメッセージが届きますのでご安心ください。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <div class="faq-q-badge">Q</div>
+          <div class="faq-q-text">効果を実感するまでどのくらい？</div>
+          <div class="faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">多くの方が1〜2週間で外見の変化を実感されます。マッチング率やデート獲得については個人差がありますが、1ヶ月程度で明確な変化を感じていただいています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <div class="faq-q-badge">Q</div>
+          <div class="faq-q-text">Zoom面談は無制限ですか？</div>
+          <div class="faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">プランBおよびプランCでは、契約期間中のZoom面談が無制限です。思い立ったタイミングで何度でもご相談いただけます。プランAは月2回まで対応しています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          <div class="faq-q-badge">Q</div>
+          <div class="faq-q-text">返金はできますか？</div>
+          <div class="faq-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="faq-answer">サービス開始前のキャンセルは全額返金対応しております。サービス開始後については、ご利用分を差し引いた金額でご返金となります。詳細はお問い合わせください。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta" id="contact">
+  <div class="footer-cta-inner">
+    <div class="footer-cta-tag">FIRST STEP</div>
+    <h2 class="footer-cta-headline">まずは無料面談で、<br>あなたの伸びしろを整理する。</h2>
+    <p class="footer-cta-sub">あなただけの戦略をご提案します。まずはお気軽にご相談ください。</p>
+    <div class="footer-cta-buttons">
+      <a href="https://lin.ee/vVtBdaE" target="_blank" rel="noopener" class="btn-primary-white">無料診断を受ける &nbsp;→</a>
+      <a href="https://lin.ee/vVtBdaE" target="_blank" rel="noopener" class="btn-line-white">
+        <span class="line-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.627.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></span>
+        LINEで相談する
+      </a>
+    </div>
+  </div>
+  <div class="footer-cta-watermark">A</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">AURA</div>
+    <div class="footer-links">
+      <a href="#about">AURAとは</a>
+      <a href="#services">サービス</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">特定商取引法</a>
+    </div>
+    <div class="footer-copy">© 2024 AURA. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const toggle = el.querySelector('.faq-toggle');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAll('.faq-toggle').forEach(t => t.classList.remove('open'));
+  if (!isOpen) {
+    answer.classList.add('open');
+    toggle.classList.add('open');
+  }
+}
+</script>
+
+</body>
+</html>
