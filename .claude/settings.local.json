@@ -13,7 +13,12 @@
       "Bash(mkdir -p design_extracted)",
       "Bash(tar -xzf design.gz -C design_extracted)",
       "Bash(cp *)",
-      "Bash(start *)"
+      "Bash(start *)",
+      "Bash(python *)",
+      "Bash(Start-Sleep -Seconds 2)",
+      "Bash(Invoke-WebRequest -Uri \"http://localhost:8080\" -Method Head -TimeoutSec 3)",
+      "Bash(Select-Object -ExpandProperty StatusCode)",
+      "PowerShell(Start-Sleep -Seconds 1; \\(Invoke-WebRequest -Uri \"http://localhost:8080\" -Method Head -TimeoutSec 3\\).StatusCode)"
     ]
   }
 }

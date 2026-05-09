@@ -1425,7 +1425,7 @@
     .hero-bg::after { background: linear-gradient(105deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.5) 100%); }
     .about-inner { grid-template-columns: 1fr; }
     .problems-grid { grid-template-columns: repeat(3, 1fr); }
-    .reasons-grid { grid-template-columns: repeat(3, 1fr); }
+    .reasons-grid { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: repeat(3, 1fr); }
     .pricing-card { flex: 0 0 calc(85% - 10px); }
     .pricing-card.featured { padding-top: 52px; }
@@ -1451,6 +1451,11 @@
     .footer-links { flex-wrap: wrap; justify-content: center; }
     .comparison-inner { max-width: 100%; }
     .metrics-strip { overflow: hidden; }
+  }
+
+  @media (max-width: 480px) {
+    .reasons-grid { grid-template-columns: 1fr; }
+    .reason-icon { width: 56px; height: 56px; }
   }
 </style>
 </head>
@@ -1684,43 +1689,43 @@
     <div class="divider"></div>
     <div class="services-grid">
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_036.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_fashion.png" alt="">
         <span class="service-label">ファッション</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_037.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_makeup.png" alt="">
         <span class="service-label">メンズメイク</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_038.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_skincare.png" alt="">
         <span class="service-label">スキンケア</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_039.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_fragrance.png" alt="">
         <span class="service-label">香水・匂い</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_040.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_camera.png" alt="">
         <span class="service-label">写真撮影</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_041.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_matching.png" alt="">
         <span class="service-label">マッチングアプリ</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_042.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_instagram.png" alt="">
         <span class="service-label">インスタ・出会い</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_044.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_love.png" alt="">
         <span class="service-label">恋愛・関係構築</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_043.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_room.png" alt="">
         <span class="service-label">部屋づくり</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_044.png" alt="">
+        <img class="service-icon" src="assets/lp/icon_notebook.png" alt="">
         <span class="service-label">思考・人生設計</span>
       </div>
     </div>
