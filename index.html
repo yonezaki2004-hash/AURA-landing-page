@@ -22,7 +22,7 @@
     --font-display: 'Cormorant Garamond', serif;
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
 
   body {
     font-family: var(--font-sans);
@@ -31,6 +31,7 @@
     font-size: 14px;
     line-height: 1.7;
     overflow-x: hidden;
+    max-width: 100%;
   }
 
   /* ── HEADER ── */
@@ -1447,6 +1448,9 @@
     nav { display: none; }
     footer { padding: 24px; }
     .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .comparison-inner { max-width: 100%; }
+    .metrics-strip { overflow: hidden; }
   }
 </style>
 </head>
@@ -1522,8 +1526,8 @@
     </div>
   </div>
   <!-- glow streak decorations -->
-  <img src="assets/lp/element_003.png" alt="" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:200px;opacity:0.4;pointer-events:none;">
-  <img src="assets/lp/element_003.png" alt="" style="position:absolute;right:0;top:50%;transform:translateY(-50%) scaleX(-1);width:200px;opacity:0.4;pointer-events:none;">
+  <img src="assets/lp/element_003.png" alt="" style="position:absolute;left:0;top:50%;transform:translateY(-50%);width:200px;max-width:30%;opacity:0.4;pointer-events:none;">
+  <img src="assets/lp/element_003.png" alt="" style="position:absolute;right:0;top:50%;transform:translateY(-50%) scaleX(-1);width:200px;max-width:30%;opacity:0.4;pointer-events:none;">
 </div>
 
 <!-- ABOUT -->
