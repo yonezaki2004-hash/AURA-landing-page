@@ -12,7 +12,8 @@
       "Bash(tar -xzf \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\design.gz\" -C \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\design_extracted\")",
       "Bash(mkdir -p design_extracted)",
       "Bash(tar -xzf design.gz -C design_extracted)",
-      "Bash(cp *)"
+      "Bash(cp *)",
+      "Bash(start *)"
     ]
   }
 }

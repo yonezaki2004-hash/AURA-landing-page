@@ -544,8 +544,8 @@
   }
 
   .problem-icon {
-    width: 64px;
-    height: 64px;
+    width: 96px;
+    height: 96px;
     object-fit: contain;
   }
 
@@ -579,23 +579,32 @@
     background: var(--dark);
     border: 1px solid #2a2a2a;
     border-radius: 8px;
-    padding: 20px 16px;
+    padding: 24px 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
+  }
+
+  .reason-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
   }
 
   .reason-number {
-    font-size: 10px;
+    font-size: 11px;
     color: var(--gray);
     letter-spacing: 0.15em;
+    flex-shrink: 0;
+    line-height: 1;
   }
 
   .reason-icon {
-    width: 40px;
-    height: 40px;
+    width: 72px;
+    height: 72px;
     object-fit: contain;
     filter: invert(1);
+    flex-shrink: 0;
   }
 
   .reason-title {
@@ -638,8 +647,8 @@
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 32px 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 24px;
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -653,8 +662,8 @@
   }
 
   .service-icon {
-    width: 60px;
-    height: 60px;
+    width: 96px;
+    height: 96px;
     object-fit: contain;
   }
 
@@ -666,120 +675,233 @@
 
   /* ── PRICING ── */
   .pricing-section {
-    background: var(--light);
+    background: #F5F5F5;
     padding: 80px;
   }
 
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
-    max-width: 960px;
+  .pricing-slider-wrap {
+    max-width: 980px;
     margin: 0 auto;
-    align-items: start;
+    position: relative;
   }
+
+  .pricing-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 16px 4px 20px;
+    scrollbar-width: none;
+  }
+
+  .pricing-grid::-webkit-scrollbar { display: none; }
 
   .pricing-card {
     background: var(--white);
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 32px 28px;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 36px 28px 32px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(33.333% - 14px);
+    min-width: 260px;
+    scroll-snap-align: center;
+    transition: box-shadow 0.2s;
   }
 
   .pricing-card.featured {
     background: var(--black);
     border-color: var(--black);
     color: var(--white);
-    transform: scale(1.04);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+    padding-top: 48px;
   }
 
   .pricing-badge {
     position: absolute;
-    top: -12px;
-    right: 20px;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
     background: var(--white);
     color: var(--black);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.1em;
-    padding: 4px 14px;
+    padding: 4px 16px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     gap: 4px;
-    border: 1px solid var(--light);
+    white-space: nowrap;
   }
 
   .pricing-plan-name {
-    font-size: 12px;
-    letter-spacing: 0.1em;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
     color: var(--gray);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .pricing-card.featured .pricing-plan-name { color: #888; }
 
+  .pricing-type {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 0.04em;
+  }
+
+  .pricing-card.featured .pricing-type { color: var(--white); }
+
+  .pricing-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+
   .pricing-price {
     font-family: var(--font-serif);
-    font-size: 44px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 1;
-    letter-spacing: -0.01em;
-    margin-bottom: 4px;
+    letter-spacing: -0.02em;
   }
 
-  .pricing-price span {
-    font-size: 18px;
+  .pricing-card.featured .pricing-price { font-size: 48px; }
+
+  .pricing-price-unit {
+    font-size: 16px;
     font-weight: 500;
+    color: var(--mid);
   }
+
+  .pricing-card.featured .pricing-price-unit { color: #aaa; }
 
   .pricing-period {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--gray);
-    margin-bottom: 4px;
-  }
-
-  .pricing-card.featured .pricing-period { color: #888; }
-
-  .pricing-type {
-    font-size: 13px;
-    font-weight: 500;
     margin-bottom: 20px;
+    letter-spacing: 0.05em;
   }
+
+  .pricing-card.featured .pricing-period { color: #777; }
 
   .pricing-divider {
     height: 1px;
-    background: var(--light);
+    background: #EBEBEB;
     margin-bottom: 20px;
   }
 
-  .pricing-card.featured .pricing-divider { background: #333; }
+  .pricing-card.featured .pricing-divider { background: #2a2a2a; }
 
   .pricing-features {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
+    flex: 1;
+    margin-bottom: 28px;
   }
 
   .pricing-features li {
     font-size: 12px;
     color: var(--mid);
-    padding-left: 14px;
+    padding-left: 20px;
     position: relative;
     line-height: 1.6;
   }
 
-  .pricing-card.featured .pricing-features li { color: #aaa; }
+  .pricing-card.featured .pricing-features li { color: #bbb; }
 
   .pricing-features li::before {
-    content: '•';
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--gray);
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #E8E8E8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
+
+  .pricing-card.featured .pricing-features li::before {
+    background: #2a2a2a;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%23fff' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+
+  .pricing-cta {
+    display: block;
+    text-align: center;
+    padding: 13px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1.5px solid var(--black);
+    color: var(--black);
+    background: transparent;
+    margin-top: auto;
+  }
+
+  .pricing-cta:hover { background: var(--black); color: var(--white); }
+
+  .pricing-card.featured .pricing-cta {
+    background: var(--white);
+    color: var(--black);
+    border-color: var(--white);
+  }
+
+  .pricing-card.featured .pricing-cta:hover { background: var(--light); }
+
+  .pricing-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .pricing-nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1.5px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .pricing-nav-btn:hover { background: var(--black); border-color: var(--black); }
+  .pricing-nav-btn:hover svg { stroke: var(--white); }
+  .pricing-nav-btn svg { stroke: var(--black); width: 16px; height: 16px; transition: stroke 0.2s; }
+
+  .pricing-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .pricing-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .pricing-dot.active { background: var(--black); width: 20px; border-radius: 3px; }
 
   /* ── FLOW ── */
   .flow-section {
@@ -788,12 +910,17 @@
   }
 
   .flow-steps {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 0;
-    max-width: 1200px;
+    max-width: 960px;
     margin: 0 auto;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .flow-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
   }
 
   .flow-step {
@@ -802,18 +929,27 @@
     align-items: center;
     gap: 12px;
     text-align: center;
-    position: relative;
+    flex: 1;
+    max-width: 220px;
     padding: 0 8px;
   }
 
-  .flow-step:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    top: 56px;
-    right: -12px;
-    width: 24px;
-    height: 1px;
-    background: var(--light);
+  .flow-h-arrow {
+    flex-shrink: 0;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 78px; /* align with center of icon-wrap */
+  }
+
+  .flow-h-arrow svg { stroke: #ccc; }
+
+  .flow-row-connector {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+    overflow: hidden;
   }
 
   .flow-number {
@@ -823,8 +959,8 @@
   }
 
   .flow-icon-wrap {
-    width: 88px;
-    height: 88px;
+    width: 110px;
+    height: 110px;
     border: 2px solid var(--black);
     border-radius: 50%;
     display: flex;
@@ -834,8 +970,8 @@
   }
 
   .flow-icon {
-    width: 52px;
-    height: 52px;
+    width: 72px;
+    height: 72px;
     object-fit: contain;
   }
 
@@ -905,10 +1041,13 @@
   .comparison-table-wrap {
     position: relative;
     margin-bottom: 36px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .ct {
     width: 100%;
+    min-width: 600px;
     border-collapse: collapse;
     color: #ddd;
     font-size: 14px;
@@ -964,6 +1103,18 @@
     background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18), 0 0 24px rgba(255,255,255,0.05);
   }
+
+  .comparison-scroll-hint {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: #888;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+  }
+
+  .comparison-scroll-hint svg { width: 14px; height: 14px; stroke: #888; }
 
   .comparison-note {
     background: #050505;
@@ -1274,19 +1425,22 @@
     .about-inner { grid-template-columns: 1fr; }
     .problems-grid { grid-template-columns: repeat(3, 1fr); }
     .reasons-grid { grid-template-columns: repeat(3, 1fr); }
-    .services-grid { grid-template-columns: repeat(4, 1fr); }
-    .pricing-grid { grid-template-columns: 1fr; }
-    .pricing-card.featured { transform: none; }
-    .flow-steps { grid-template-columns: repeat(3, 1fr); }
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .pricing-card { flex: 0 0 calc(85% - 10px); }
+    .pricing-card.featured { padding-top: 52px; }
+    .flow-row { flex-direction: column; align-items: center; }
+    .flow-h-arrow { padding-top: 0; padding: 4px 0; transform: rotate(90deg); }
+    .flow-row-connector svg { display: none; }
+    .flow-row-connector::after { content: ''; display: block; width: 1.5px; height: 40px; background: #ccc; margin: 0 auto; }
+    .flow-step { max-width: 100%; }
     section { padding: 60px 24px; }
     .about-section, .problems-section, .reasons-section, .services-section,
     .pricing-section, .flow-section, .faq-section, .footer-cta { padding: 60px 24px; }
     .comparison-section { padding: 60px 16px; }
     .comparison-headline { font-size: 26px; }
-    .ct { font-size: 11px; }
-    .ct th, .ct td { padding: 10px 4px; }
-    .ct td:first-child, .ct th:first-child { width: auto; font-size: 11px; }
     .comparison-features { grid-template-columns: 1fr 1fr; }
+    .comparison-table-wrap { border-radius: 8px; }
+    .comparison-scroll-hint { display: flex; }
     .metrics-strip { padding: 28px 24px; }
     .metrics-inner { gap: 32px; flex-wrap: wrap; justify-content: flex-start; }
     header { padding: 0 16px; }
@@ -1461,38 +1615,50 @@
     <div class="divider"></div>
     <div class="reasons-grid">
       <div class="reason-card">
-        <span class="reason-number">01</span>
-        <img class="reason-icon" src="assets/lp/element_036.png" alt="">
+        <div class="reason-header">
+          <span class="reason-number">01</span>
+          <img class="reason-icon" src="assets/lp/element_036.png" alt="">
+        </div>
         <div class="reason-title">一気通貫で整える外見からアプリまで隙のない戦略設計</div>
         <div class="reason-text">外見から分析から最短レートを設計し、確実に進める。</div>
       </div>
       <div class="reason-card">
-        <span class="reason-number">02</span>
-        <img class="reason-icon" src="assets/lp/element_050.png" alt="">
+        <div class="reason-header">
+          <span class="reason-number">02</span>
+          <img class="reason-icon" src="assets/lp/element_050.png" alt="">
+        </div>
         <div class="reason-title">あなただけのロードマップ</div>
         <div class="reason-text">確認分析から最短レートを設計し、確実に進める。</div>
       </div>
       <div class="reason-card">
-        <span class="reason-number">03</span>
-        <img class="reason-icon" src="assets/lp/element_052.png" alt="">
+        <div class="reason-header">
+          <span class="reason-number">03</span>
+          <img class="reason-icon" src="assets/lp/element_052.png" alt="">
+        </div>
         <div class="reason-title">24時間365日相談受付</div>
         <div class="reason-text">思い立った時にいつでも相談可能。スピード感のある対応で成果の鍵を握る。</div>
       </div>
       <div class="reason-card">
-        <span class="reason-number">04</span>
-        <img class="reason-icon" src="assets/lp/element_053.png" alt="">
+        <div class="reason-header">
+          <span class="reason-number">04</span>
+          <img class="reason-icon" src="assets/lp/element_053.png" alt="">
+        </div>
         <div class="reason-title">Zoom面談回数無制限</div>
         <div class="reason-text">何度でも面談OK。自動配布で相談から成果の相談をサポート。</div>
       </div>
       <div class="reason-card">
-        <span class="reason-number">05</span>
-        <img class="reason-icon" src="assets/lp/element_047.png" alt="">
+        <div class="reason-header">
+          <span class="reason-number">05</span>
+          <img class="reason-icon" src="assets/lp/element_047.png" alt="">
+        </div>
         <div class="reason-title">実体験に基づく作成</div>
         <div class="reason-text">成功・失敗体験をもとに、実践的で再現性の高いアドバイスを提供。</div>
       </div>
       <div class="reason-card">
-        <span class="reason-number">06</span>
-        <img class="reason-icon" src="assets/lp/element_048.png" alt="">
+        <div class="reason-header">
+          <span class="reason-number">06</span>
+          <img class="reason-icon" src="assets/lp/element_048.png" alt="">
+        </div>
         <div class="reason-title">手に取りやすい価格設計</div>
         <div class="reason-text">高品質なサポートを他社の半額に近い適正価格で提供、投資対効果を最大化。</div>
       </div>
@@ -1542,11 +1708,11 @@
         <span class="service-label">インスタ・出会い</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_043.png" alt="">
+        <img class="service-icon" src="assets/lp/element_044.png" alt="">
         <span class="service-label">恋愛・関係構築</span>
       </div>
       <div class="service-item">
-        <img class="service-icon" src="assets/lp/element_044.png" alt="">
+        <img class="service-icon" src="assets/lp/element_043.png" alt="">
         <span class="service-label">部屋づくり</span>
       </div>
       <div class="service-item">
@@ -1568,54 +1734,84 @@
       <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
     </div>
     <div class="divider"></div>
-    <div class="pricing-grid">
-      <!-- Plan A -->
-      <div class="pricing-card">
-        <div class="pricing-plan-name">プランA</div>
-        <div class="pricing-price">90,000<span>円</span></div>
-        <div class="pricing-period">40日間</div>
-        <div class="pricing-type">自走型プラン</div>
-        <div class="pricing-divider"></div>
-        <ul class="pricing-features">
-          <li>動画解説・ドキュメント解説</li>
-          <li>ロードマップ相談</li>
-        </ul>
-      </div>
-
-      <!-- Plan B (featured) -->
-      <div class="pricing-card featured">
-        <div class="pricing-badge">
-          <img src="assets/lp/element_047.png" style="width:12px;height:12px;object-fit:contain;" alt="">
-          人気No.1
+    <div class="pricing-slider-wrap">
+      <div class="pricing-grid" id="pricingSlider">
+        <!-- Plan A -->
+        <div class="pricing-card">
+          <div class="pricing-plan-name">PLAN A</div>
+          <div class="pricing-type">自走型プラン</div>
+          <div class="pricing-price-row">
+            <div class="pricing-price">90,000</div>
+            <span class="pricing-price-unit">円</span>
+          </div>
+          <div class="pricing-period">40日間</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li>動画解説・ドキュメント解説</li>
+            <li>ロードマップ相談</li>
+            <li>Zoom面談（月2回まで）</li>
+          </ul>
+          <a href="https://lin.ee/vVtBdaE" target="_blank" rel="noopener" class="pricing-cta">このプランで申し込む</a>
         </div>
-        <div class="pricing-plan-name">プランB</div>
-        <div class="pricing-price" style="font-size:52px;">150,000<span>円</span></div>
-        <div class="pricing-period">40日間</div>
-        <div class="pricing-type">伴走型プラン</div>
-        <div class="pricing-divider"></div>
-        <ul class="pricing-features">
-          <li>動画解説・ドキュメント解説</li>
-          <li>24時間365日FB</li>
-          <li>Zoom面談無制限</li>
-          <li>ロードマップ徹底解説</li>
-        </ul>
-      </div>
 
-      <!-- Plan C -->
-      <div class="pricing-card">
-        <div class="pricing-plan-name">プランC</div>
-        <div class="pricing-price">400,000<span>円</span></div>
-        <div class="pricing-period">100日間</div>
-        <div class="pricing-type">完全仕上・実践型プラン</div>
-        <div class="pricing-divider"></div>
-        <ul class="pricing-features">
-          <li>動画解説・ドキュメント解説</li>
-          <li>24時間365日対応</li>
-          <li>Zoom面談無制限</li>
-        </ul>
+        <!-- Plan B (featured) -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">
+            <img src="assets/lp/element_047.png" style="width:12px;height:12px;object-fit:contain;filter:invert(0);" alt="">
+            人気No.1
+          </div>
+          <div class="pricing-plan-name">PLAN B</div>
+          <div class="pricing-type">伴走型プラン</div>
+          <div class="pricing-price-row">
+            <div class="pricing-price">150,000</div>
+            <span class="pricing-price-unit">円</span>
+          </div>
+          <div class="pricing-period">40日間</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li>動画解説・ドキュメント解説</li>
+            <li>24時間365日フィードバック</li>
+            <li>Zoom面談無制限</li>
+            <li>ロードマップ徹底解説</li>
+          </ul>
+          <a href="https://lin.ee/vVtBdaE" target="_blank" rel="noopener" class="pricing-cta">このプランで申し込む</a>
+        </div>
+
+        <!-- Plan C -->
+        <div class="pricing-card">
+          <div class="pricing-plan-name">PLAN C</div>
+          <div class="pricing-type">完全仕上・実践型プラン</div>
+          <div class="pricing-price-row">
+            <div class="pricing-price">400,000</div>
+            <span class="pricing-price-unit">円</span>
+          </div>
+          <div class="pricing-period">100日間</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li>動画解説・ドキュメント解説</li>
+            <li>24時間365日対応</li>
+            <li>Zoom面談無制限</li>
+            <li>対面指導・同行サポート</li>
+            <li>完全オーダーメイド設計</li>
+          </ul>
+          <a href="https://lin.ee/vVtBdaE" target="_blank" rel="noopener" class="pricing-cta">このプランで申し込む</a>
+        </div>
+      </div>
+      <div class="pricing-nav">
+        <button class="pricing-nav-btn" id="pricingPrev" aria-label="前へ">
+          <svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+        </button>
+        <div class="pricing-dots" id="pricingDots">
+          <div class="pricing-dot active" data-idx="0"></div>
+          <div class="pricing-dot" data-idx="1"></div>
+          <div class="pricing-dot" data-idx="2"></div>
+        </div>
+        <button class="pricing-nav-btn" id="pricingNext" aria-label="次へ">
+          <svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3l5 5-5 5"/></svg>
+        </button>
       </div>
     </div>
-    <p style="text-align:center;font-size:11px;color:var(--gray);margin-top:32px;letter-spacing:0.05em;">※ 金額はすべて税込表示です。お支払いは一括・分割どちらも対応可能です。</p>
+    <p style="text-align:center;font-size:11px;color:var(--gray);margin-top:20px;letter-spacing:0.05em;">※ 金額はすべて税込表示です。お支払いは一括・分割どちらも対応可能です。</p>
   </div>
 </section>
 
@@ -1629,53 +1825,84 @@
     </div>
     <div class="divider"></div>
     <div class="flow-steps">
-      <div class="flow-step">
-        <span class="flow-number">01</span>
-        <div class="flow-icon-wrap">
-          <img class="flow-icon" src="assets/lp/element_049.png" alt="LINE">
+      <!-- Row 1: Steps 1–3 -->
+      <div class="flow-row">
+        <div class="flow-step">
+          <span class="flow-number">01</span>
+          <div class="flow-icon-wrap">
+            <img class="flow-icon" src="assets/lp/element_049.png" alt="LINE">
+          </div>
+          <div class="flow-label">LINE追加</div>
+          <div class="flow-desc">友達追加して簡単スタート</div>
         </div>
-        <div class="flow-label">LINE追加</div>
-        <div class="flow-desc">友達追加して簡単スタート</div>
+        <div class="flow-h-arrow">
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 8H16M10 2l6 6-6 6"/></svg>
+        </div>
+        <div class="flow-step">
+          <span class="flow-number">02</span>
+          <div class="flow-icon-wrap">
+            <img class="flow-icon" src="assets/lp/element_046.png" alt="ヒアリング">
+          </div>
+          <div class="flow-label">事前相談</div>
+          <div class="flow-desc">現状をアンケートで確認</div>
+        </div>
+        <div class="flow-h-arrow">
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 8H16M10 2l6 6-6 6"/></svg>
+        </div>
+        <div class="flow-step">
+          <span class="flow-number">03</span>
+          <div class="flow-icon-wrap">
+            <img class="flow-icon" src="assets/lp/element_053.png" alt="無料体験">
+          </div>
+          <div class="flow-label">無料体験</div>
+          <div class="flow-desc">課題を整理・方向性を確認</div>
+        </div>
       </div>
-      <div class="flow-step">
-        <span class="flow-number">02</span>
-        <div class="flow-icon-wrap">
-          <img class="flow-icon" src="assets/lp/element_046.png" alt="ヒアリング">
-        </div>
-        <div class="flow-label">事前相談</div>
-        <div class="flow-desc">現状をアンケートで確認</div>
+
+      <!-- Row connector: 3 → 4 (diagonal) -->
+      <div class="flow-row-connector">
+        <svg width="960" height="64" viewBox="0 0 960 64" fill="none" style="max-width:100%;display:block;">
+          <defs>
+            <marker id="arrowDiag" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
+              <polyline points="0,0 7,4 0,8" fill="none" stroke="#ccc" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+          <line x1="740" y1="6" x2="220" y2="58" stroke="#ccc" stroke-width="1.5" marker-end="url(#arrowDiag)"/>
+        </svg>
       </div>
-      <div class="flow-step">
-        <span class="flow-number">03</span>
-        <div class="flow-icon-wrap">
-          <img class="flow-icon" src="assets/lp/element_053.png" alt="無料体験">
+
+      <!-- Row 2: Steps 4–6 -->
+      <div class="flow-row">
+        <div class="flow-step">
+          <span class="flow-number">04</span>
+          <div class="flow-icon-wrap">
+            <img class="flow-icon" src="assets/lp/element_051.png" alt="お申込み">
+          </div>
+          <div class="flow-label">お申込み</div>
+          <div class="flow-desc">一部サービスを無料お申込み</div>
         </div>
-        <div class="flow-label">無料体験</div>
-        <div class="flow-desc">課題を整理・方向性を確認</div>
-      </div>
-      <div class="flow-step">
-        <span class="flow-number">04</span>
-        <div class="flow-icon-wrap">
-          <img class="flow-icon" src="assets/lp/element_051.png" alt="お申込み">
+        <div class="flow-h-arrow">
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 8H16M10 2l6 6-6 6"/></svg>
         </div>
-        <div class="flow-label">無料体験</div>
-        <div class="flow-desc">一部サービスを無料お申込み</div>
-      </div>
-      <div class="flow-step">
-        <span class="flow-number">05</span>
-        <div class="flow-icon-wrap">
-          <img class="flow-icon" src="assets/lp/element_050.png" alt="ご契約">
+        <div class="flow-step">
+          <span class="flow-number">05</span>
+          <div class="flow-icon-wrap">
+            <img class="flow-icon" src="assets/lp/element_050.png" alt="ご契約">
+          </div>
+          <div class="flow-label">ご契約</div>
+          <div class="flow-desc">プランを選択してご契約</div>
         </div>
-        <div class="flow-label">ご契約</div>
-        <div class="flow-desc">プランを選択してご契約</div>
-      </div>
-      <div class="flow-step">
-        <span class="flow-number">06</span>
-        <div class="flow-icon-wrap">
-          <img class="flow-icon" src="assets/lp/element_054.png" alt="サポート開始">
+        <div class="flow-h-arrow">
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 8H16M10 2l6 6-6 6"/></svg>
         </div>
-        <div class="flow-label">サポート開始</div>
-        <div class="flow-desc">ロードマップに沿ってサポート開始</div>
+        <div class="flow-step">
+          <span class="flow-number">06</span>
+          <div class="flow-icon-wrap">
+            <img class="flow-icon" src="assets/lp/element_054.png" alt="サポート開始">
+          </div>
+          <div class="flow-label">サポート開始</div>
+          <div class="flow-desc">ロードマップに沿ってサポート開始</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1688,6 +1915,10 @@
     <h2 class="comparison-headline">AURAは、最短で人生を変える。</h2>
     <p class="comparison-sub">料金・期間・サポート、すべてにおいて圧倒的な差をつける。</p>
 
+    <div class="comparison-scroll-hint">
+      <svg viewBox="0 0 14 14" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+      横にスクロールできます
+    </div>
     <div class="comparison-table-wrap">
       <table class="ct">
         <thead>
@@ -1707,7 +1938,6 @@
           <tr><td>対面指導</td><td class="ct-aura ct-emph">無制限</td><td>×</td><td>△</td></tr>
           <tr><td>24時間365日FB対応</td><td class="ct-aura ct-emph">無制限</td><td>項目ごとに15回程度</td><td>無制限</td></tr>
           <tr><td>ロードマップ作成</td><td class="ct-aura">○</td><td>○</td><td>△</td></tr>
-          <tr><td>フォローアップ期間</td><td class="ct-aura ct-emph">20日</td><td>0〜180日</td><td>500日</td></tr>
           <tr><td>座学講義回数</td><td class="ct-aura ct-emph">オンライン動画視聴 or Zoom講義で無制限</td><td>10〜30回</td><td>（記載なし）</td></tr>
           <tr><td>日数</td><td class="ct-aura ct-emph">40〜100日</td><td>100〜180日</td><td>180日</td></tr>
           <tr><td>値段</td><td class="ct-aura ct-emph">90,000〜400,000円<small>（競合の約50％以下）</small></td><td>500,000〜1,000,000円</td><td>450,000〜1,700,000円</td></tr>
@@ -1850,6 +2080,37 @@ function toggleFaq(el) {
     toggle.classList.add('open');
   }
 }
+
+(function() {
+  const slider = document.getElementById('pricingSlider');
+  const dots   = document.querySelectorAll('.pricing-dot');
+  const cards  = slider.querySelectorAll('.pricing-card');
+  let current  = 0;
+
+  function scrollTo(idx) {
+    current = Math.max(0, Math.min(idx, cards.length - 1));
+    cards[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  document.getElementById('pricingPrev').addEventListener('click', () => scrollTo(current - 1));
+  document.getElementById('pricingNext').addEventListener('click', () => scrollTo(current + 1));
+  dots.forEach(d => d.addEventListener('click', () => scrollTo(+d.dataset.idx)));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = Array.from(cards).indexOf(e.target);
+        if (idx >= 0) {
+          current = idx;
+          dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+      }
+    });
+  }, { root: slider, threshold: 0.6 });
+
+  cards.forEach(c => observer.observe(c));
+})();
 </script>
 
 </body>
