@@ -679,6 +679,12 @@
     object-fit: contain;
   }
 
+  .service-text-img {
+    width: 100%;
+    max-width: 90px;
+    object-fit: contain;
+  }
+
   .service-label {
     font-size: 11px;
     color: var(--mid);
@@ -1435,7 +1441,7 @@
     .hero-headline { font-size: 36px; }
     .hero-bg::after { background: linear-gradient(105deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 50%, rgba(0,0,0,0.5) 100%); }
     .about-inner { grid-template-columns: 1fr; }
-    .problems-grid { grid-template-columns: repeat(3, 1fr); }
+    .problems-grid { grid-template-columns: repeat(2, 1fr); }
     .reasons-grid { grid-template-columns: repeat(2, 1fr); }
     .services-grid { grid-template-columns: repeat(3, 1fr); }
     .pricing-card { flex: 0 0 calc(85% - 10px); }
@@ -1561,22 +1567,22 @@
       <p class="about-text">外見・思考・環境を整え、理想の未来へ導く実践型コンサルティングサービスです。</p>
       <div class="about-flow">
         <div class="about-flow-item">
-          <img class="about-flow-icon" src="assets/lp/element_036.png" alt="ファッション">
+          <img class="about-flow-icon" src="assets/rich_menu_service_extracts_png/01_fashion_icon.png" alt="ファッション">
           <span class="about-flow-label">外見改善</span>
         </div>
         <div class="about-flow-arrow"></div>
         <div class="about-flow-item">
-          <img class="about-flow-icon" src="assets/lp/element_041.png" alt="マッチング">
+          <img class="about-flow-icon" src="assets/rich_menu_service_extracts_png/06_matchingapp_icon.png" alt="マッチング">
           <span class="about-flow-label">出会い</span>
         </div>
         <div class="about-flow-arrow"></div>
         <div class="about-flow-item">
-          <img class="about-flow-icon" src="assets/lp/element_042.png" alt="インスタ">
+          <img class="about-flow-icon" src="assets/rich_menu_service_extracts_png/07_instagram_icon.png" alt="インスタ">
           <span class="about-flow-label">会話</span>
         </div>
         <div class="about-flow-arrow"></div>
         <div class="about-flow-item">
-          <img class="about-flow-icon" src="assets/lp/element_043.png" alt="関係構築">
+          <img class="about-flow-icon" src="assets/rich_menu_service_extracts_png/08_love_icon.png" alt="関係構築">
           <span class="about-flow-label">関係構築</span>
         </div>
       </div>
@@ -1588,7 +1594,40 @@
 
 <!-- PROBLEMS -->
 <section class="problems-section" id="problems">
-  <img src="assets/nayami.png" alt="こんな悩みはありませんか？" class="reveal" style="width:100%;display:block;">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="">
+      <h2 class="section-title" style="margin-bottom:0;">こんな悩みはありませんか？</h2>
+      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="problems-grid reveal">
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/rich_menu_service_extracts_png/01_fashion_icon.png" alt="ファッション">
+        <span class="problem-label">服装に<br>自信がない</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/rich_menu_service_extracts_png/02_mensmake_icon.png" alt="メンズメイク">
+        <span class="problem-label">髪型・眉毛・肌が<br>整わない</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/rich_menu_service_extracts_png/06_matchingapp_icon.png" alt="マッチング">
+        <span class="problem-label">写真が映えず<br>アプリで埋もれている</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_046.png" alt="悩み">
+        <span class="problem-label">何を変えるべきか<br>わからない</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_045.png" alt="メッセージ">
+        <span class="problem-label">メッセージや<br>デートが続かない</span>
+      </div>
+      <div class="problem-item">
+        <img class="problem-icon" src="assets/lp/element_050.png" alt="成長">
+        <span class="problem-label">経験はあるのに<br>成果につながらない</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- REASONS (DARK) -->
@@ -1598,7 +1637,56 @@
 
 <!-- SERVICES -->
 <section class="services-section" id="services">
-  <img src="assets/service.png" alt="サービス内容" class="reveal" style="width:100%;display:block;">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="">
+      <h2 class="section-title" style="margin-bottom:0;">サービス内容</h2>
+      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="services-grid reveal">
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/01_fashion_icon.png" alt="ファッション">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/01_fashion_text.png" alt="ファッション">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/02_mensmake_icon.png" alt="メンズメイク">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/02_mensmake_text.png" alt="メンズメイク">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/03_skincare_icon.png" alt="スキンケア">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/03_skincare_text.png" alt="スキンケア">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/04_perfume_icon.png" alt="香水・匂い">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/04_perfume_text.png" alt="香水・匂い">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/05_photo_icon.png" alt="写真撮影">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/05_photo_text.png" alt="写真撮影">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/06_matchingapp_icon.png" alt="マッチングアプリ">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/06_matchingapp_text.png" alt="マッチングアプリ">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/07_instagram_icon.png" alt="インスタ・出会い">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/07_instagram_text.png" alt="インスタ・出会い">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/08_love_icon.png" alt="恋愛・関係構築">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/08_love_text.png" alt="恋愛・関係構築">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/09_room_icon.png" alt="部屋づくり">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/09_room_text.png" alt="部屋づくり">
+      </div>
+      <div class="service-item">
+        <img class="service-icon" src="assets/rich_menu_service_extracts_png/10_life_design_icon.png" alt="思考・人生設計">
+        <img class="service-text-img" src="assets/rich_menu_service_extracts_png/10_life_design_text.png" alt="思考・人生設計">
+      </div>
+    </div>
+  </div>
 </section>
 
 <div class="glow-divider"></div>

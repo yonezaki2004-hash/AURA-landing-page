@@ -18,7 +18,10 @@
       "Bash(Start-Sleep -Seconds 2)",
       "Bash(Invoke-WebRequest -Uri \"http://localhost:8080\" -Method Head -TimeoutSec 3)",
       "Bash(Select-Object -ExpandProperty StatusCode)",
-      "PowerShell(Start-Sleep -Seconds 1; \\(Invoke-WebRequest -Uri \"http://localhost:8080\" -Method Head -TimeoutSec 3\\).StatusCode)"
+      "PowerShell(Start-Sleep -Seconds 1; \\(Invoke-WebRequest -Uri \"http://localhost:8080\" -Method Head -TimeoutSec 3\\).StatusCode)",
+      "Bash(element_04)",
+      "Bash(element_05\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\syuhe\\\\lp-design\\\\assets\\\\lp\\\\\" | Where-Object { $_.Name -match \"element_03[6-9]|element_04[0-9]|element_050\" } | Select-Object Name)"
     ]
   }
 }
