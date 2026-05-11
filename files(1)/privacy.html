@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー｜AURA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black:   #0a0a0a;
+    --white:   #ffffff;
+    --gray1:   #1a1a1a;
+    --gray2:   #2d2d2d;
+    --gray3:   #3d3d3d;
+    --gray4:   #6a6a6a;
+    --gray5:   #a0a0a0;
+    --gray6:   #d0d0d0;
+    --serif:   'Noto Serif JP', '游明朝', Georgia, serif;
+    --sans:    'Noto Sans JP', '游ゴシック', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--gray6);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 2.0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray2);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .header-link {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--gray5);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gray3);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .header-link:hover { color: var(--white); }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid var(--gray2);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .page-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gray4);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1.4;
+  }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    font-size: 14px;
+    color: var(--gray5);
+    line-height: 2.0;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--gray2);
+  }
+
+  /* ── SECTION ── */
+  .policy-section {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--gray2);
+  }
+  .policy-section:last-child {
+    border-bottom: none;
+  }
+  .policy-section h2 {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .policy-section h2::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 18px;
+    background: var(--white);
+    flex-shrink: 0;
+  }
+  .policy-section p {
+    font-size: 14px;
+    color: var(--gray5);
+    line-height: 2.0;
+    margin-bottom: 12px;
+  }
+  .policy-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+  }
+  .policy-section ul li {
+    font-size: 14px;
+    color: var(--gray5);
+    line-height: 1.9;
+    padding: 8px 0 8px 20px;
+    border-bottom: 1px solid var(--gray2);
+    position: relative;
+  }
+  .policy-section ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gray3);
+    font-size: 12px;
+  }
+  .policy-section ul li:last-child { border-bottom: none; }
+
+  /* ── CONTACT BOX ── */
+  .contact-box {
+    background: var(--gray1);
+    border: 1px solid var(--gray2);
+    padding: 28px 32px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--gray5);
+    line-height: 2.2;
+  }
+  .contact-box a {
+    color: var(--gray6);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── UPDATED ── */
+  .updated {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray2);
+    font-size: 12px;
+    color: var(--gray4);
+    text-align: right;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gray1);
+    border-top: 1px solid var(--gray2);
+    padding: 40px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: 5px;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 12px;
+    color: var(--gray4);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--gray3);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 640px) {
+    header { padding: 0 20px; }
+    .page-hero { padding: 60px 20px 40px; }
+    .page-hero h1 { font-size: 24px; }
+    .container { padding: 40px 20px 80px; }
+    footer { padding: 32px 20px; }
+    .footer-links { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://yonezaki2004-hash.github.io/AURA-landing-page/" class="logo">AURA</a>
+  <a href="./tokusho.html" class="header-link">特定商取引法に基づく表記</a>
+</header>
+
+<div class="page-hero">
+  <p class="page-label">Privacy Policy</p>
+  <h1>プライバシーポリシー</h1>
+</div>
+
+<div class="container">
+
+  <div class="intro">
+    小泉樹希（以下「当事業者」）は、本サービス「AURA」（以下「本サービス」）において、お客様の個人情報の取り扱いについて以下のとおりプライバシーポリシーを定めます。本サービスをご利用いただく際は、本ポリシーに同意いただいたものとみなします。
+  </div>
+
+  <div class="policy-section">
+    <h2>1. 取得する個人情報</h2>
+    <p>当事業者は、本サービスの提供にあたり、以下の個人情報を取得することがあります。</p>
+    <ul>
+      <li>氏名・ニックネーム</li>
+      <li>メールアドレス</li>
+      <li>LINEアカウント情報</li>
+      <li>お問い合わせ内容・ご相談内容</li>
+      <li>お客様が任意で提供されたその他の情報（写真・身体的情報など）</li>
+      <li>決済情報（クレジットカード情報はStripeが管理し、当事業者は保有しません）</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>2. 個人情報の利用目的</h2>
+    <p>取得した個人情報は、以下の目的のみに利用いたします。</p>
+    <ul>
+      <li>本サービスの提供・運営</li>
+      <li>お客様へのサポート・フィードバックの提供</li>
+      <li>お問い合わせへの対応</li>
+      <li>サービス改善・新サービスの開発</li>
+      <li>重要なお知らせの送信</li>
+      <li>法令に基づく対応</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>3. 個人情報の第三者提供</h2>
+    <p>当事業者は、以下の場合を除き、お客様の個人情報を第三者に提供することはありません。</p>
+    <ul>
+      <li>お客様ご本人の同意がある場合</li>
+      <li>法令に基づく場合</li>
+      <li>人の生命・身体・財産の保護のために必要な場合</li>
+    </ul>
+  </div>
+
+  <div class="policy-section">
+    <h2>4. 個人情報の管理</h2>
+    <p>当事業者は、お客様の個人情報を適切に管理し、不正アクセス・紛失・破壊・改ざん・漏洩などを防止するために必要な安全管理措置を講じます。</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>5. Cookieの使用について</h2>
+    <p>本サービスのウェブサイトでは、サービス改善・利便性向上のためにCookieを使用することがあります。ブラウザの設定によりCookieを無効にすることができますが、一部の機能がご利用いただけなくなる場合があります。</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>6. 個人情報の開示・訂正・削除</h2>
+    <p>お客様は、当事業者が保有するご自身の個人情報について、開示・訂正・削除を請求することができます。ご希望の場合は下記お問い合わせ先までご連絡ください。</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>7. 未成年者について</h2>
+    <p>本サービスは18歳以上の方を対象としています。18歳未満の方はご利用いただけません。</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>8. プライバシーポリシーの変更</h2>
+    <p>当事業者は、必要に応じて本ポリシーを変更することがあります。変更後のポリシーは本ページに掲載した時点で効力を生じるものとします。</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>9. お問い合わせ</h2>
+    <p>個人情報の取り扱いに関するお問い合わせは、下記までご連絡ください。</p>
+    <div class="contact-box">
+      事業者名：小泉 樹希<br>
+      メールアドレス：<a href="mailto:k.5nuuul@gmail.com">k.5nuuul@gmail.com</a><br>
+      受付時間：24時間受付（返信は営業時間内にて対応）
+    </div>
+  </div>
+
+  <div class="updated">
+    制定日：2025年5月<br>
+    小泉 樹希
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">AURA</div>
+  <div class="footer-links">
+    <a href="https://yonezaki2004-hash.github.io/AURA-landing-page/">トップページ</a>
+    <a href="./privacy.html">プライバシーポリシー</a>
+    <a href="./tokusho.html">特定商取引法に基づく表記</a>
+  </div>
+  <div class="footer-copy">© 2025 AURA All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定商取引法に基づく表記｜AURA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black:   #0a0a0a;
+    --white:   #ffffff;
+    --gray1:   #1a1a1a;
+    --gray2:   #2d2d2d;
+    --gray3:   #3d3d3d;
+    --gray4:   #6a6a6a;
+    --gray5:   #a0a0a0;
+    --gray6:   #d0d0d0;
+    --serif:   'Noto Serif JP', '游明朝', Georgia, serif;
+    --sans:    'Noto Sans JP', '游ゴシック', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--gray6);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 2.0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray2);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .header-link {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--gray5);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gray3);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  .header-link:hover { color: var(--white); }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid var(--gray2);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .page-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gray4);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 2px;
+    line-height: 1.4;
+  }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px 120px;
+  }
+
+  /* ── INTRO ── */
+  .intro {
+    font-size: 14px;
+    color: var(--gray5);
+    line-height: 2.0;
+    margin-bottom: 56px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--gray2);
+  }
+
+  /* ── TABLE ── */
+  .law-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 48px;
+  }
+  .law-table tr {
+    border-bottom: 1px solid var(--gray2);
+  }
+  .law-table tr:first-child {
+    border-top: 1px solid var(--gray2);
+  }
+  .law-table th {
+    background: var(--gray1);
+    color: var(--gray6);
+    text-align: left;
+    padding: 20px 24px;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    width: 200px;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  .law-table td {
+    background: var(--black);
+    color: var(--gray5);
+    padding: 20px 24px;
+    font-size: 14px;
+    line-height: 2.0;
+    vertical-align: top;
+  }
+  .law-table td small {
+    display: block;
+    font-size: 12px;
+    color: var(--gray4);
+    margin-top: 6px;
+    line-height: 1.8;
+  }
+  .law-table td a {
+    color: var(--gray6);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ── NOTE BOX ── */
+  .note-box {
+    background: var(--gray1);
+    border: 1px solid var(--gray2);
+    border-left: 3px solid var(--gray3);
+    padding: 24px 28px;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--gray5);
+    line-height: 2.0;
+  }
+
+  /* ── UPDATED ── */
+  .updated {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray2);
+    font-size: 12px;
+    color: var(--gray4);
+    text-align: right;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--gray1);
+    border-top: 1px solid var(--gray2);
+    padding: 40px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-size: 18px;
+    letter-spacing: 5px;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-links a {
+    font-size: 12px;
+    color: var(--gray4);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy {
+    font-size: 11px;
+    color: var(--gray3);
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 640px) {
+    header { padding: 0 20px; }
+    .page-hero { padding: 60px 20px 40px; }
+    .page-hero h1 { font-size: 24px; }
+    .container { padding: 40px 20px 80px; }
+    .law-table th {
+      width: 120px;
+      padding: 16px 14px;
+      font-size: 12px;
+      white-space: normal;
+    }
+    .law-table td { padding: 16px 14px; }
+    footer { padding: 32px 20px; }
+    .footer-links { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="https://yonezaki2004-hash.github.io/AURA-landing-page/" class="logo">AURA</a>
+  <a href="./privacy.html" class="header-link">プライバシーポリシー</a>
+</header>
+
+<div class="page-hero">
+  <p class="page-label">Specified Commercial Transaction Act</p>
+  <h1>特定商取引法に基づく表記</h1>
+</div>
+
+<div class="container">
+
+  <div class="intro">
+    特定商取引に関する法律第11条に基づき、以下の事項を表記いたします。
+  </div>
+
+  <table class="law-table">
+    <tr>
+      <th>販売事業者名</th>
+      <td>小泉 樹希</td>
+    </tr>
+    <tr>
+      <th>代表者氏名</th>
+      <td>小泉 樹希（コイズミ タツキ）</td>
+    </tr>
+    <tr>
+      <th>所在地</th>
+      <td>
+        神奈川県横浜市瀬谷区瀬谷5-21-5
+        <small>※お問い合わせはメールにてお願いいたします。</small>
+      </td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td>
+        070-4403-4973
+        <small>※電話でのお問い合わせは受け付けておりません。メールにてご連絡ください。</small>
+      </td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td><a href="mailto:k.5nuuul@gmail.com">k.5nuuul@gmail.com</a></td>
+    </tr>
+    <tr>
+      <th>サービス名</th>
+      <td>AURA（男性向け外見改善・恋愛改善コンサルティングサービス）</td>
+    </tr>
+    <tr>
+      <th>販売価格</th>
+      <td>
+        プランA：90,000円（税込）／ 40日間<br>
+        プランB：150,000円（税込）／ 40日間<br>
+        プランC：400,000円（税込）／ 100日間
+        <small>※各プランの詳細については料金ページをご確認ください。</small>
+      </td>
+    </tr>
+    <tr>
+      <th>支払方法</th>
+      <td>
+        クレジットカード決済（Visa・Mastercard・American Express・JCB等）<br>
+        銀行振込
+      </td>
+    </tr>
+    <tr>
+      <th>支払時期</th>
+      <td>
+        クレジットカード：お申し込み時に決済<br>
+        銀行振込：お申し込み後7日以内にお振込みください
+      </td>
+    </tr>
+    <tr>
+      <th>サービス提供<br>開始時期</th>
+      <td>入金確認後、即日よりサービスを開始いたします。</td>
+    </tr>
+    <tr>
+      <th>返品・<br>キャンセル</th>
+      <td>
+        サービス開始前：全額返金いたします。<br>
+        サービス開始後：原則として返金はお受けできません。
+        <small>※当社側の重大な過失による場合は個別に協議のうえ対応いたします。デジタルコンテンツの性質上、提供開始後の返品はお受けできませんのでご了承ください。</small>
+      </td>
+    </tr>
+    <tr>
+      <th>動作環境</th>
+      <td>
+        インターネット接続環境が必要です。<br>
+        スマートフォン・PC・タブレットにてご利用いただけます。<br>
+        LINEアプリがインストールされていること。
+      </td>
+    </tr>
+    <tr>
+      <th>特記事項</th>
+      <td>
+        成果・結果については個人差があり、特定の結果を保証するものではありません。<br>
+        本サービスは主にオンラインにて提供されます（一部プランは対面サポートあり）。
+      </td>
+    </tr>
+  </table>
+
+  <div class="note-box">
+    ご不明な点がございましたら、下記メールアドレスまでお気軽にお問い合わせください。<br>
+    <strong style="color:#d0d0d0;">k.5nuuul@gmail.com</strong>
+  </div>
+
+  <div class="updated">
+    制定日：2025年5月<br>
+    小泉 樹希
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">AURA</div>
+  <div class="footer-links">
+    <a href="https://yonezaki2004-hash.github.io/AURA-landing-page/">トップページ</a>
+    <a href="./privacy.html">プライバシーポリシー</a>
+    <a href="./tokusho.html">特定商取引法に基づく表記</a>
+  </div>
+  <div class="footer-copy">© 2025 AURA All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
