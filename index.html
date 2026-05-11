@@ -522,6 +522,17 @@
     border-bottom: 3px solid transparent;
   }
 
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   /* ── PROBLEMS ── */
   .problems-section {
     background: var(--white);
@@ -1577,159 +1588,17 @@
 
 <!-- PROBLEMS -->
 <section class="problems-section" id="problems">
-  <div class="section-inner">
-    <div class="section-deco">
-      <img src="assets/lp/element_002.png" alt="">
-      <h2 class="section-title" style="margin-bottom:0;">こんな悩みはありませんか？</h2>
-      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
-    </div>
-    <div class="divider"></div>
-    <div class="problems-grid">
-      <div class="problem-item">
-        <img class="problem-icon" src="assets/lp/element_036.png" alt="ファッション">
-        <span class="problem-label">服装に<br>自信がない</span>
-      </div>
-      <div class="problem-item">
-        <img class="problem-icon" src="assets/lp/element_037.png" alt="筋トレ">
-        <span class="problem-label">髪型・眉毛・肌が<br>整わない</span>
-      </div>
-      <div class="problem-item">
-        <img class="problem-icon" src="assets/lp/element_041.png" alt="マッチング">
-        <span class="problem-label">写真が映えず<br>アプリで埋もれている</span>
-      </div>
-      <div class="problem-item">
-        <img class="problem-icon" src="assets/lp/element_046.png" alt="悩み">
-        <span class="problem-label">何を変えるべきか<br>わからない</span>
-      </div>
-      <div class="problem-item">
-        <img class="problem-icon" src="assets/lp/element_045.png" alt="メッセージ">
-        <span class="problem-label">メッセージや<br>デートが続かない</span>
-      </div>
-      <div class="problem-item">
-        <img class="problem-icon" src="assets/lp/element_050.png" alt="成長">
-        <span class="problem-label">経験はあるのに<br>成果につながらない</span>
-      </div>
-    </div>
-  </div>
+  <img src="assets/nayami.png" alt="こんな悩みはありませんか？" class="reveal" style="width:100%;display:block;">
 </section>
 
 <!-- REASONS (DARK) -->
 <section class="reasons-section" id="reasons">
-  <div class="section-inner">
-    <div class="section-deco">
-      <img src="assets/lp/element_002.png" alt="" class="dark-sparkle">
-      <h2 class="section-title" style="margin-bottom:0;">AURAが選ばれる理由</h2>
-      <img src="assets/lp/element_002.png" alt="" class="dark-sparkle" style="transform:scaleX(-1);">
-    </div>
-    <div class="divider"></div>
-    <div class="reasons-grid">
-      <div class="reason-card">
-        <div class="reason-header">
-          <span class="reason-number">01</span>
-          <img class="reason-icon" src="assets/lp/element_036.png" alt="">
-        </div>
-        <div class="reason-title">一気通貫で整える外見からアプリまで隙のない戦略設計</div>
-        <div class="reason-text">外見から分析から最短レートを設計し、確実に進める。</div>
-      </div>
-      <div class="reason-card">
-        <div class="reason-header">
-          <span class="reason-number">02</span>
-          <img class="reason-icon" src="assets/lp/element_050.png" alt="">
-        </div>
-        <div class="reason-title">あなただけのロードマップ</div>
-        <div class="reason-text">確認分析から最短レートを設計し、確実に進める。</div>
-      </div>
-      <div class="reason-card">
-        <div class="reason-header">
-          <span class="reason-number">03</span>
-          <img class="reason-icon" src="assets/lp/element_052.png" alt="">
-        </div>
-        <div class="reason-title">24時間365日相談受付</div>
-        <div class="reason-text">思い立った時にいつでも相談可能。スピード感のある対応で成果の鍵を握る。</div>
-      </div>
-      <div class="reason-card">
-        <div class="reason-header">
-          <span class="reason-number">04</span>
-          <img class="reason-icon" src="assets/lp/element_053.png" alt="">
-        </div>
-        <div class="reason-title">Zoom面談回数無制限</div>
-        <div class="reason-text">何度でも面談OK。自動配布で相談から成果の相談をサポート。</div>
-      </div>
-      <div class="reason-card">
-        <div class="reason-header">
-          <span class="reason-number">05</span>
-          <img class="reason-icon" src="assets/lp/element_047.png" alt="">
-        </div>
-        <div class="reason-title">実体験に基づく作成</div>
-        <div class="reason-text">成功・失敗体験をもとに、実践的で再現性の高いアドバイスを提供。</div>
-      </div>
-      <div class="reason-card">
-        <div class="reason-header">
-          <span class="reason-number">06</span>
-          <img class="reason-icon" src="assets/lp/element_048.png" alt="">
-        </div>
-        <div class="reason-title">手に取りやすい価格設計</div>
-        <div class="reason-text">高品質なサポートを他社の半額に近い適正価格で提供、投資対効果を最大化。</div>
-      </div>
-    </div>
-    <div class="reasons-tagline">
-      一般論ではなく、<em>「あなたに合う基盤」</em>から変える。
-    </div>
-  </div>
+  <img src="assets/riyu.png" alt="AURAが選ばれる理由" class="reveal" style="width:100%;display:block;">
 </section>
 
 <!-- SERVICES -->
 <section class="services-section" id="services">
-  <div class="section-inner">
-    <div class="section-deco">
-      <img src="assets/lp/element_002.png" alt="">
-      <h2 class="section-title" style="margin-bottom:0;">サービス内容</h2>
-      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
-    </div>
-    <div class="divider"></div>
-    <div class="services-grid">
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_fashion.png" alt="">
-        <span class="service-label">ファッション</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_makeup.png" alt="">
-        <span class="service-label">メンズメイク</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_skincare.png" alt="">
-        <span class="service-label">スキンケア</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_fragrance.png" alt="">
-        <span class="service-label">香水・匂い</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_camera.png" alt="">
-        <span class="service-label">写真撮影</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_matching.png" alt="">
-        <span class="service-label">マッチングアプリ</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_instagram.png" alt="">
-        <span class="service-label">インスタ・出会い</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_love.png" alt="">
-        <span class="service-label">恋愛・関係構築</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_room.png" alt="">
-        <span class="service-label">部屋づくり</span>
-      </div>
-      <div class="service-item">
-        <img class="service-icon" src="assets/lp/icon_notebook.png" alt="">
-        <span class="service-label">思考・人生設計</span>
-      </div>
-    </div>
-  </div>
+  <img src="assets/service.png" alt="サービス内容" class="reveal" style="width:100%;display:block;">
 </section>
 
 <div class="glow-divider"></div>
@@ -1826,95 +1695,7 @@
 
 <!-- FLOW -->
 <section class="flow-section" id="flow">
-  <div class="section-inner">
-    <div class="section-deco">
-      <img src="assets/lp/element_002.png" alt="">
-      <h2 class="section-title" style="margin-bottom:0;">ご利用の流れ</h2>
-      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
-    </div>
-    <div class="divider"></div>
-    <div class="flow-steps">
-      <!-- Row 1: Steps 1–3 -->
-      <div class="flow-row">
-        <div class="flow-step">
-          <span class="flow-number">01</span>
-          <div class="flow-icon-wrap">
-            <img class="flow-icon" src="assets/lp/element_049.png" alt="LINE">
-          </div>
-          <div class="flow-label">LINE追加</div>
-          <div class="flow-desc">友達追加して簡単スタート</div>
-        </div>
-        <div class="flow-h-arrow">
-          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 8H16M10 2l6 6-6 6"/></svg>
-        </div>
-        <div class="flow-step">
-          <span class="flow-number">02</span>
-          <div class="flow-icon-wrap">
-            <img class="flow-icon" src="assets/lp/element_046.png" alt="ヒアリング">
-          </div>
-          <div class="flow-label">事前相談</div>
-          <div class="flow-desc">現状をアンケートで確認</div>
-        </div>
-        <div class="flow-h-arrow">
-          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 8H16M10 2l6 6-6 6"/></svg>
-        </div>
-        <div class="flow-step">
-          <span class="flow-number">03</span>
-          <div class="flow-icon-wrap">
-            <img class="flow-icon" src="assets/lp/element_053.png" alt="無料体験">
-          </div>
-          <div class="flow-label">無料体験</div>
-          <div class="flow-desc">課題を整理・方向性を確認</div>
-        </div>
-      </div>
-
-      <!-- Row connector: 3 → 4 (diagonal) -->
-      <div class="flow-row-connector">
-        <svg width="960" height="64" viewBox="0 0 960 64" fill="none" style="max-width:100%;display:block;">
-          <defs>
-            <marker id="arrowDiag" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="strokeWidth">
-              <polyline points="0,0 7,4 0,8" fill="none" stroke="#ccc" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </marker>
-          </defs>
-          <line x1="740" y1="6" x2="220" y2="58" stroke="#ccc" stroke-width="1.5" marker-end="url(#arrowDiag)"/>
-        </svg>
-      </div>
-
-      <!-- Row 2: Steps 4–6 -->
-      <div class="flow-row">
-        <div class="flow-step">
-          <span class="flow-number">04</span>
-          <div class="flow-icon-wrap">
-            <img class="flow-icon" src="assets/lp/element_051.png" alt="お申込み">
-          </div>
-          <div class="flow-label">お申込み</div>
-          <div class="flow-desc">一部サービスを無料お申込み</div>
-        </div>
-        <div class="flow-h-arrow">
-          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 8H16M10 2l6 6-6 6"/></svg>
-        </div>
-        <div class="flow-step">
-          <span class="flow-number">05</span>
-          <div class="flow-icon-wrap">
-            <img class="flow-icon" src="assets/lp/element_050.png" alt="ご契約">
-          </div>
-          <div class="flow-label">ご契約</div>
-          <div class="flow-desc">プランを選択してご契約</div>
-        </div>
-        <div class="flow-h-arrow">
-          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 8H16M10 2l6 6-6 6"/></svg>
-        </div>
-        <div class="flow-step">
-          <span class="flow-number">06</span>
-          <div class="flow-icon-wrap">
-            <img class="flow-icon" src="assets/lp/element_054.png" alt="サポート開始">
-          </div>
-          <div class="flow-label">サポート開始</div>
-          <div class="flow-desc">ロードマップに沿ってサポート開始</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <img src="assets/nagare.png" alt="ご利用の流れ" class="reveal" style="width:100%;display:block;">
 </section>
 
 <!-- COMPARISON -->
@@ -2119,6 +1900,19 @@ function toggleFaq(el) {
   }, { root: slider, threshold: 0.6 });
 
   cards.forEach(c => observer.observe(c));
+})();
+
+// Scroll reveal
+(function() {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 })();
 </script>
 
