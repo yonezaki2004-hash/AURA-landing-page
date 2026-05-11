@@ -615,8 +615,8 @@
     width: 72px;
     height: 72px;
     object-fit: contain;
-    filter: invert(1);
     flex-shrink: 0;
+    mix-blend-mode: screen;
   }
 
   .reason-title {
@@ -928,7 +928,7 @@
   }
 
   .flow-steps {
-    max-width: 960px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -1002,6 +1002,52 @@
   }
 
   .flow-desc {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ── FLOW GRID (1911 icons) ── */
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .flow-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    padding: 28px 16px;
+    border: 1px solid var(--light);
+    border-radius: 8px;
+  }
+
+  .flow-card-number {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.2em;
+  }
+
+  .flow-card-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+
+  .flow-card-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.4;
+  }
+
+  .flow-card-desc {
     font-size: 11px;
     color: var(--gray);
     line-height: 1.6;
@@ -1443,6 +1489,7 @@
     .about-inner { grid-template-columns: 1fr; }
     .problems-grid { grid-template-columns: repeat(2, 1fr); }
     .reasons-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-grid { grid-template-columns: 1fr; max-width: 480px; }
     .services-grid { grid-template-columns: repeat(3, 1fr); }
     .pricing-card { flex: 0 0 calc(85% - 10px); }
     .pricing-card.featured { padding-top: 52px; }
@@ -1632,7 +1679,67 @@
 
 <!-- REASONS (DARK) -->
 <section class="reasons-section" id="reasons">
-  <img src="assets/riyu.png" alt="AURAが選ばれる理由" class="reveal" style="width:100%;display:block;">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="" class="dark-sparkle">
+      <h2 class="section-title" style="margin-bottom:0;">AURAが選ばれる理由</h2>
+      <img src="assets/lp/element_002.png" alt="" class="dark-sparkle" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="reasons-grid reveal">
+      <div class="reason-card">
+        <div class="reason-header">
+          <span class="reason-number">01</span>
+          <img class="reason-icon" src="assets/1911/reason_01.png" alt="">
+          <div class="reason-title">外見×実績の相乗効果</div>
+        </div>
+        <p class="reason-text">ファッション指導と確かな成果実績の両輪で、あなたの変化を最短で加速させます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-header">
+          <span class="reason-number">02</span>
+          <img class="reason-icon" src="assets/1911/reason_02.png" alt="">
+          <div class="reason-title">成果が数字で見える</div>
+        </div>
+        <p class="reason-text">段階的な成長ロードマップで確実に変化を実感。数値で見える成果を積み重ねます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-header">
+          <span class="reason-number">03</span>
+          <img class="reason-icon" src="assets/1911/reason_03.png" alt="">
+          <div class="reason-title">24時間365日サポート</div>
+        </div>
+        <p class="reason-text">3人体制でいつでも途切れない継続的な伴走。思い立ったときにすぐ相談できます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-header">
+          <span class="reason-number">04</span>
+          <img class="reason-icon" src="assets/1911/reason_04.png" alt="">
+          <div class="reason-title">豊富な動画コンテンツ</div>
+        </div>
+        <p class="reason-text">いつでも何度でも見返せる充実の動画教材。自分のペースで深く学べます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-header">
+          <span class="reason-number">05</span>
+          <img class="reason-icon" src="assets/1911/reason_05.png" alt="">
+          <div class="reason-title">業界最高水準の品質</div>
+        </div>
+        <p class="reason-text">競合を圧倒するサポート内容と成果実績。業界トップクラスの指導品質を提供します。</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-header">
+          <span class="reason-number">06</span>
+          <img class="reason-icon" src="assets/1911/reason_06.png" alt="">
+          <div class="reason-title">圧倒的なコスパ</div>
+        </div>
+        <p class="reason-text">競合の半額以下で最高品質のサービスを提供。適正価格で真の価値をお届けします。</p>
+      </div>
+    </div>
+    <div class="reasons-tagline">
+      外見・思考・環境を整え、<em>理想の人生を最短で手に入れる。</em>
+    </div>
+  </div>
 </section>
 
 <!-- SERVICES -->
@@ -1783,7 +1890,52 @@
 
 <!-- FLOW -->
 <section class="flow-section" id="flow">
-  <img src="assets/nagare.png" alt="ご利用の流れ" class="reveal" style="width:100%;display:block;">
+  <div class="section-inner">
+    <div class="section-deco">
+      <img src="assets/lp/element_002.png" alt="">
+      <h2 class="section-title" style="margin-bottom:0;">ご利用の流れ</h2>
+      <img src="assets/lp/element_002.png" alt="" style="transform:scaleX(-1);">
+    </div>
+    <div class="divider"></div>
+    <div class="flow-grid reveal">
+      <div class="flow-card">
+        <span class="flow-card-number">STEP 01</span>
+        <img class="flow-card-icon" src="assets/1911/flow_01.png" alt="">
+        <div class="flow-card-label">LINE登録・お問い合わせ</div>
+        <p class="flow-card-desc">まずはLINEに登録。気軽にメッセージでお問い合わせください。</p>
+      </div>
+      <div class="flow-card">
+        <span class="flow-card-number">STEP 02</span>
+        <img class="flow-card-icon" src="assets/1911/flow_02.png" alt="">
+        <div class="flow-card-label">無料診断・ヒアリング</div>
+        <p class="flow-card-desc">現状の課題と目標を丁寧にヒアリング。完全無料で診断します。</p>
+      </div>
+      <div class="flow-card">
+        <span class="flow-card-number">STEP 03</span>
+        <img class="flow-card-icon" src="assets/1911/flow_03.png" alt="">
+        <div class="flow-card-label">コンテンツ・学習開始</div>
+        <p class="flow-card-desc">専用の動画・資料をもとに、あなたの戦略を学習開始します。</p>
+      </div>
+      <div class="flow-card">
+        <span class="flow-card-number">STEP 04</span>
+        <img class="flow-card-icon" src="assets/1911/flow_04.png" alt="">
+        <div class="flow-card-label">実践コンサルティング</div>
+        <p class="flow-card-desc">ロードマップに沿って外見・恋愛を実践的に変えていきます。</p>
+      </div>
+      <div class="flow-card">
+        <span class="flow-card-number">STEP 05</span>
+        <img class="flow-card-icon" src="assets/1911/flow_05.png" alt="">
+        <div class="flow-card-label">成果・変化の確認</div>
+        <p class="flow-card-desc">定期的に変化を確認し、さらなる改善へPDCAを回します。</p>
+      </div>
+      <div class="flow-card">
+        <span class="flow-card-number">STEP 06</span>
+        <img class="flow-card-icon" src="assets/1911/flow_06.png" alt="">
+        <div class="flow-card-label">目標達成・卒業</div>
+        <p class="flow-card-desc">理想の姿へ到達。出会いが変わり、新しい人生がスタートします。</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- COMPARISON -->
